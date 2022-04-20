@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from 'src/app/models/Usuario';
-import { AuthService } from 'src/app/services/auth.service';
+/*import { AuthService } from 'src/app/services/auth.service';
 import { TokenService } from 'src/app/services/token.service';
-import { LoginUsuario } from 'src/app/models/login-usuario';
+import { LoginUsuario } from 'src/app/models/login-usuario';*/
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-account-user',
@@ -10,15 +10,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./create-account-user.component.css']
 })
 export class CreateAccountUserComponent implements OnInit {
-  loginUsuario!: LoginUsuario;
+ /* loginUsuario!: LoginUsuario;
   nombreUsuario = '';
-  password = '';
+  password = '';*/
   usuarioNuevo:Usuario={id_usuario:null,nombre:"",apellido:"",email:"",password:""};
   isLogged = false;
 
   constructor(
-    private authService: AuthService,
-    private tokenService: TokenService,
+   /* private authService: AuthService,
+    private tokenService: TokenService,*/
     private router: Router
   ) { }
 
@@ -26,7 +26,7 @@ export class CreateAccountUserComponent implements OnInit {
     this.testLogged();
   }
 
-  ionViewWillEnter() {
+  /*ionViewWillEnter() {
     this.testLogged();
     this.vaciar();
   }
@@ -62,6 +62,6 @@ export class CreateAccountUserComponent implements OnInit {
   testLogged(): void {
     this.isLogged = this.tokenService.getToken() != null;
   }
-
+*/
 
 }
