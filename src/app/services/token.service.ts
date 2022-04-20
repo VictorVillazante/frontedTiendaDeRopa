@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import * as jwt_decode from 'jwt-decode';
+/*import * as jwt_decode from 'jwt-decode';*/
 
 const TOKEN_KEY = 'AuthToken';
 
@@ -10,7 +10,7 @@ const TOKEN_KEY = 'AuthToken';
 export class TokenService {
 
   constructor() { }
-
+/*
   public setToken(token: string): void {
     window.sessionStorage.removeItem(TOKEN_KEY);
     window.sessionStorage.setItem(TOKEN_KEY, token);
@@ -42,5 +42,5 @@ export class TokenService {
 
   public logOut(): void {
     window.sessionStorage.clear();
-  }
+  }*/
 }
