@@ -19,18 +19,18 @@
                             <div class="card-body">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="col-10">
+                                        <div class="col-8">
                                             <h5 class="card-title">{{producto.nombre}}</h5>
                                         </div>
-                                        <div class="col-2">
-                                            <h5 class="card-title">{{producto.precio}} Bs.</h5>
+                                        <div class="col-4">
+                                            <h5 class="card-title">Precio: {{producto.precio}} Bs.</h5>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-3">
                                             <button type="button" class="btn btn-danger" (click)="deleteData(producto)">Eliminar</button>
                                         </div>
-                                        <div class="col-6" >                                       
+                                        <div class="col-3" >                                     
                                                 <input type="number" class="form-control" [(ngModel)]="producto.cantidad">
                                                 <button type="button" class="btn btn-light" (click)="modoificarCantidad(producto.id)">Confirmar</button>                                                                                 
                                         </div>
@@ -51,7 +51,7 @@
                     <div class="card-body">
                       <h5 class="card-title">Costo</h5>
                       <p class="card-text">{{total}}</p>
-                      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                      <p class="card-text"><small class="text-muted"></small></p>
                     </div>
                   </div>
                 </div>

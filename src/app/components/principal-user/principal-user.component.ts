@@ -47,4 +47,5 @@ export class PrincipalUserComponent implements OnInit {
     this.subtitulo = "CATEGORIA: "+categoria.nombre
   }
 
+
 }
