@@ -7,14 +7,14 @@
             <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
             <div class="login-form">
                 <div class="sign-in-htm">
-                    <form action="/ingresar" method="POST">
+                    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
                         <div class="group">
-                            <label for="user" class="label">Correo</label>
-                            <input id="user" name="cl" type="text" class="input">
+                            <label for="user" class="label">Nombre Usuario</label>
+                            <input id="user" [(ngModel)]="nombreUsuario" name="cl" type="text" class="input">
                         </div>
                         <div class="group">
                             <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" name="passwordLogin" class="input" data-type="password">
+                            <input id="pass" type="password" [(ngModel)]="password" name="passwordLogin" class="input" data-type="password">
                         </div>
                         <div class="group">
                             <input type="submit" class="button" value="Ingresar">
@@ -41,7 +41,7 @@
                             <input id="pass" [(ngModel)]="usuarioNuevo.password" type="password" class="input" data-type="passsword" name="password">
                         </div>
                         <div class="group">
-                            <input type="submit" class="button" value="Registrar" (click)="registrarNuevoUsuario()">
+                            <input type="submit" class="button" value="Registrar" >
                         </div>
                         <div class="hr"></div>
                     </form>
