@@ -1,54 +1,6 @@
 <app-navigation-menu-user></app-navigation-menu-user>
 <div class="container">
 
-    <div class="login-wrap">
-        <div class="login-html">
-            <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Ingresar</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registrarse</label>
-            <div class="login-form">
-                <div class="sign-in-htm">
-                    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
-                        <div class="group">
-                            <label for="user" class="label">Nombre Usuario</label>
-                            <input id="user" [(ngModel)]="nombreUsuario" name="cl" type="text" class="input">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" type="password" [(ngModel)]="password" name="passwordLogin" class="input" data-type="password">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Ingresar">
-                        </div>
-                        <div class="hr"></div>
-                    </form>
-                </div>
-                <div class="sign-up-htm">
-                    <form action="/registrar" method="POST">
-                        <div class="group">
-                            <label for="user" class="label">Nombre</label>
-                            <input id="user" [(ngModel)]="usuarioNuevo.nombre" type="text" class="input" name="nombre">
-                        </div>
-                        <div class="group">
-                            <label for="user" class="label">Apellido</label>
-                            <input id="user" [(ngModel)]="usuarioNuevo.apellido" type="text" class="input" name="apellido">
-                        </div>
-                        <div class="group">
-                            <label for="user" class="label">Correo</label>
-                            <input id="user" [(ngModel)]="usuarioNuevo.email" type="email" class="input" name="correo">
-                        </div>
-                        <div class="group">
-                            <label for="pass" class="label">Password</label>
-                            <input id="pass" [(ngModel)]="usuarioNuevo.password" type="password" class="input" data-type="passsword" name="password">
-                        </div>
-                        <div class="group">
-                            <input type="submit" class="button" value="Registrar" >
-                        </div>
-                        <div class="hr"></div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
+   
 </div>
 <app-footer-user></app-footer-user>
