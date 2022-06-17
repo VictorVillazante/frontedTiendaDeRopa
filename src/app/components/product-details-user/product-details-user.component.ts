@@ -14,6 +14,8 @@ export class ProductDetailsUserComponent implements OnInit {
   public colores: any= [];
   public tallas: any= [];
 
+  public IdDisponibilidad: number = 0
+
   public nombre: any
 
   public selectColor = ""
@@ -66,7 +68,7 @@ export class ProductDetailsUserComponent implements OnInit {
       this.cargarColores()
       this.cargarTallas()
       this.cargarDescuento()
-      console.log(this.detalles)
+      console.log("Los detalles"+this.detalles)
       
     })
   }
@@ -117,13 +119,22 @@ export class ProductDetailsUserComponent implements OnInit {
     } 
     if(confirm("Agregar este producto al carrito")){
 
+      for(let detalle of this.detalles){
+        if(detalle.color===this.selectColor){
+          if(detalle.talla===this.selectTalla){
+            this.IdDisponibilidad=detalle.idDisponibilidad
+            console.log("El id de disponibilidad es: "+this.IdDisponibilidad)
+          }
+        }
+      }
+
       console.log(this.detalles[0].nombre)
-      console.log(this.detalles[0].idProducto)
+      console.log(this.IdDisponibilidad)
       console.log(this.detalles[0].precio)
       console.log(this.detalles[0].color)
       console.log(this.detalles[0].talla)
       this.Carrito.setCache('carrito',{
-        id: this.detalles[0].idProducto,
+        id: this.IdDisponibilidad,
         nombre: this.detalles[0].nombre,
         precio: aux,
         cantidad: 1,
@@ -137,7 +148,7 @@ export class ProductDetailsUserComponent implements OnInit {
   public verificarAgotado(){
     this.aux=false
     for(let detalle of this.detalles){
-      if(this.selectColor == detalle.color && this.selectTalla == detalle.talla){
+      if(this.selectColor === detalle.color && this.selectTalla === detalle.talla){
         this.aux=true
       }
     }

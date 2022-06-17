@@ -34,6 +34,9 @@ export class SideBarComponent implements OnInit{
   verDashboard(){
     this.router.navigate(['/menuprincipal/dashboard/general/2000']);
   }
+  verDashboardCategoria(){
+    this.router.navigate(['/menuprincipal/dashboard/calcetines/2000']);
+  }
   salirPaginaPrincipal(){
     this.router.navigate(['/']);
   }

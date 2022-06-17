@@ -62,7 +62,7 @@ export class DashboardGeneralComponent implements OnInit {
   public barChartData: ChartData<'bar'> = {
     labels: this.nombreCategorias,
     datasets: [
-      { data: this.datos, label: '1992'},
+      { data: this.datos, label: ''+this.titulo},
     ]
   };
 

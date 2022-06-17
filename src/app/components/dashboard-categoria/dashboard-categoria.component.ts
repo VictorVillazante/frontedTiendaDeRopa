@@ -11,6 +11,7 @@ import { RestService } from './../../services/rest.service';
 export class DashboardCategoriaComponent implements OnInit {
 
   public ListaProductosByCategoryYear:any = []
+  public ListaProductosByCategoryYearTop:any = []
   public ListaCategorias:any = []
 
   public high=Math.round(this.getRandomArbitrary(200,210));
@@ -19,6 +20,10 @@ export class DashboardCategoriaComponent implements OnInit {
   public image:string | undefined;
 
   public titulo:String =""
+
+  public tituloAux:String =""
+
+  public numbTop:number=0
 
   lista:number[]=[1998,2000,2010, 2011];
   public seleccionado:number=0
@@ -33,11 +38,13 @@ export class DashboardCategoriaComponent implements OnInit {
     let year = this.route.snapshot.paramMap.get("year"); 
     let categoria = this.route.snapshot.paramMap.get("categoria"); 
     this.titulo = "Productos mas vendidos de la categoria: "+  categoria+" en el año: "+ year
+    this.tituloAux = "Productos de "+categoria+" del año "+year
     if(categoria === null){
       categoria = ''
     }
     this.CargarProductoCategoria(Number(year),categoria);
     this.CargarCategorias();
+    this.CargarProductoCategoriaTop(Number(year),categoria);
   }
 
   public CargarProductoCategoria(year:number, categoria:String){    
@@ -45,6 +52,18 @@ export class DashboardCategoriaComponent implements OnInit {
     .subscribe((respuesta:any)=>{
       this.ListaProductosByCategoryYear = respuesta
       console.log(this.ListaProductosByCategoryYear)
+    })
+  }
+
+  public CargarProductoCategoriaTop(year:number, categoria:String){    
+    this.RestService.get('http://localhost:8080/compra/ventas/categoria/top?year='+year+'&categoria='+categoria)
+    .subscribe((respuesta:any)=>{
+      this.ListaProductosByCategoryYearTop = respuesta
+      console.log(this.ListaProductosByCategoryYearTop)
+      for(let i=0;i<this.ListaProductosByCategoryYearTop.length; i++){
+        this.ListaProductosByCategoryYearTop[i].number=i+1
+        console.log(this.ListaProductosByCategoryYearTop[i].number)
+      }
     })
   }
 
